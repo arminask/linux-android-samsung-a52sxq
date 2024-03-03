@@ -65,7 +65,7 @@ modules.builtin
 /out/
 /OUT/
 /debian/changelog
-
+/clang
 
 #
 # tar directory (make tar*-pkg)
