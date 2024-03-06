@@ -44,12 +44,12 @@ KERNEL_DEFCONFIG = droidian-defconfig
 
 # Whether to include DTBs with the image. Use 0 (no) or 1.
 # GKI devices should set this to 0
-KERNEL_IMAGE_WITH_DTB = 0
+KERNEL_IMAGE_WITH_DTB = 1
 
 # Path to the DTB
 # If you leave this undefined, an attempt to find it automatically
 # will be made.
-#KERNEL_IMAGE_DTB = arch/arm64/boot/dts/qcom/my_dtb.dtb
+KERNEL_IMAGE_DTB = arch/arm64/boot/dts/qcom/a52sxq.dtb
 
 # Whether to include a DTB Overlay. Use 0 (no) or 1.
 # GKI devices should set this to 0
@@ -95,7 +95,7 @@ KERNEL_BOOTIMAGE_OS_VERSION = 13.0.0
 
 # Required for header version 2, ignore otherwise
 # GKI devices should leave this offset empty
-KERNEL_BOOTIMAGE_DTB_OFFSET = 
+#KERNEL_BOOTIMAGE_DTB_OFFSET = 
 
 # Kernel bootimage version. Defaults to 0 (legacy header).
 # As a rule of thumb:
