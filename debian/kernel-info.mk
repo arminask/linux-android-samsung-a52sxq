@@ -11,7 +11,7 @@ VARIANT = android
 KERNEL_BASE_VERSION = 5.4-233
 
 # The kernel cmdline to use
-KERNEL_BOOTIMAGE_CMDLINE = droidian.lvm.prefer systemd.unified_cgroup_hierarchy=0 console=tty0 androidboot.hardware=qcom androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 androidboot.usbcontroller=a600000.dwc3 swiotlb=0 loop.max_part=7 cgroup.memory=nokmem,nosocket firmware_class.path=/vendor/firmware_mnt/image pcie_ports=compat loop.max_part=7 iptable_raw.raw_before_defrag=1 ip6table_raw.raw_before_defrag=1 printk.devkmsg=on buildvariant=userdebug
+KERNEL_BOOTIMAGE_CMDLINE = droidian.lvm.prefer systemd.unified_cgroup_hierarchy=0 datapart=/dev/block/mmcblk1p1 console=tty0 androidboot.hardware=qcom androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 androidboot.usbcontroller=a600000.dwc3 swiotlb=0 loop.max_part=7 cgroup.memory=nokmem,nosocket firmware_class.path=/vendor/firmware_mnt/image pcie_ports=compat loop.max_part=7 iptable_raw.raw_before_defrag=1 ip6table_raw.raw_before_defrag=1 printk.devkmsg=on buildvariant=userdebug
 
 # Slug for the device vendor. This is going to be used in the KERNELRELASE
 # and package names.
@@ -49,7 +49,7 @@ KERNEL_IMAGE_WITH_DTB = 1
 # Path to the DTB
 # If you leave this undefined, an attempt to find it automatically
 # will be made.
-KERNEL_IMAGE_DTB = arch/arm64/boot/dts/qcom/a52sxq.dtb
+KERNEL_IMAGE_DTB = arch/arm64/boot/dts/samsung/a52/a52sxq/a52sxq_eur_open_w00_r02.dtb
 
 # Whether to include a DTB Overlay. Use 0 (no) or 1.
 # GKI devices should set this to 0
@@ -88,14 +88,14 @@ KERNEL_BOOTIMAGE_SECONDIMAGE_OFFSET = 0x00f00000
 KERNEL_BOOTIMAGE_TAGS_OFFSET = 0x00008000
 
 # Specify boot image security patch level if needed
-KERNEL_BOOTIMAGE_PATCH_LEVEL = 2024-01
+KERNEL_BOOTIMAGE_PATCH_LEVEL = 2024-02
 
 # Specify boot image OS version if needed
 KERNEL_BOOTIMAGE_OS_VERSION = 13.0.0
 
 # Required for header version 2, ignore otherwise
 # GKI devices should leave this offset empty
-#KERNEL_BOOTIMAGE_DTB_OFFSET = 
+#KERNEL_BOOTIMAGE_DTB_OFFSET = 0
 
 # Kernel bootimage version. Defaults to 0 (legacy header).
 # As a rule of thumb:
@@ -105,7 +105,7 @@ KERNEL_BOOTIMAGE_OS_VERSION = 13.0.0
 # Devices launched with Android 11: version 2 or 3 (GKI)
 # Devices launched with Android 12: version 3 (GKI) or 4 (GKI)
 # Devices launched with Android 13: version 3 (GKI) or 4 (GKI)
-KERNEL_BOOTIMAGE_VERSION = 0
+KERNEL_BOOTIMAGE_VERSION = 3
 
 # Kernel initramfs compression. Defaults to gzip.
 # All non-gki devices need a gzip (gz) initramfs
@@ -119,7 +119,7 @@ KERNEL_INITRAMFS_COMPRESSION = gz
 # Whether to build a flashable vbmeta.img. Please note that currently
 # only empty vbmeta images (disabling verified boot) can be generated.
 # Use 0 (no) or 1 (default).
-DEVICE_VBMETA_REQUIRED = 1
+DEVICE_VBMETA_REQUIRED = 0
 
 # Samsung devices require a special flag. Enable the following if your
 # device is a Samsung device that requires flag 0 to be present
